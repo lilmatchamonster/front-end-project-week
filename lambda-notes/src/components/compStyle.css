@@ -1,0 +1,140 @@
+h1{
+  font-size: 2.64rem;
+  line-height: .85;
+  text-align: left;
+  width: 90%;
+}
+h2{
+  font-size: 1.7rem;
+  color: #4a4a4a;
+  text-align: left;
+  margin: 69px 0 36px;
+}
+
+/* SideBar Style */
+.side{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #d8d8d8;
+  border: 2px solid #979797;
+  color: dimgray;
+  width: 285px;
+}
+.side button, .edit button, .create .btn{
+  background-color: #2bc1c4;
+  border: 2px solid #979797;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 15px 5px;
+  width: 250px;
+  margin: 12px 0;
+}
+/* End SideBar */
+
+/* Create Component Style */
+.create h2{
+  margin-bottom: 34px;
+}
+.create form{
+  display: flex;
+  flex-direction: column;
+}
+.create input{
+  font-size: 1rem;
+  padding: 18px 15px;
+  
+}
+.title{
+  width: 440px;
+  margin-bottom: 20px;
+}
+.textBody{
+  /* WHY is text aligning to center??? */
+  margin-bottom: 6px;
+  height: 419px;
+}
+/* End Create */
+
+/* List Component Style */
+.list, .noteView-header, .create{
+  background-color: #f3f3f3;
+  border: 1px solid red;
+  width: 805px;
+  padding: 0 35px;
+}
+/* .noteView-header header{
+  display: flex;
+  flex-direction: column;
+} */
+.noteView-header header div{
+  display: flex;
+  justify-content: flex-end;
+}
+.noteView-header header span{
+  margin: 20px 10px;
+  text-decoration: underline;
+  font-weight: 700;
+  color: dimgray;
+}
+.noteView-header header span:hover{
+  text-decoration: none;
+  color: rgb(153, 153, 153);
+}
+.noteView-header h2{
+  margin-top: 7px;
+}
+.holder{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: space-between;
+}
+/* End List Component */
+
+/* Note Component Style */
+.note{
+  background-color: #fff;
+  border: 1px solid #979797;
+  width: 215px;
+  margin-bottom: 30px;
+  padding: 0 20px;
+  height: 260px;
+} 
+.note h3{
+  text-align: left;
+  font-size: 1.5rem;
+  margin: 8px 0;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #979797;
+}
+.note p{
+  text-align: left;
+  margin: 0;
+  line-height: 2;
+}
+/* End Note Component */
+
+/* NoteView Component Style */
+.noteView{
+  /* border: 1px solid #979797;
+  background-color: #fff; */
+  line-height: 2;
+}
+.noteView h2{
+  margin: 0;
+}
+/* End NoteView Component */
+
+.titleInput{
+  border: 1px solid gray;
+  border-radius: .25rem;
+  color: dimgray;
+}
+
+.contentInput{
+  border: 1px solid gray;
+  border-radius: .25rem;
+  color: dimgray;
+}
