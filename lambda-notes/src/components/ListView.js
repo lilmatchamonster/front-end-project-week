@@ -21,6 +21,21 @@ class ListView extends Component {
     return [start, end]
   }
 
+  next = () => {
+    let count = this.state.page
+    if(this.props.notes.length > 9*this.state.page){
+      count ++
+      this.setState({page: count})
+    }
+  }
+
+  prev = () => {
+    let count = this.state.page
+    if((count*9 - 9) != 0){
+      this.setState({page: count - 1})
+    }
+  }
+
   render(){
     return(
       <div className="list">
@@ -28,6 +43,11 @@ class ListView extends Component {
         <div className="holder">
           {this.props.notes.slice(this.pageChange()[0],this.pageChange()[1]).map(note => {
             return <Note key={note.id} note={note} viewCard={this.props.viewCard}/>})}
+        </div>
+        <div className="nav-div">
+          <button className="nav-btn" onClick={() => this.prev()}>{"<<"} Previous</button>
+          <p>~{this.state.page}~</p>
+          <button className="nav-btn" onClick={() => this.next()}>Next {">>"}</button>
         </div>
       </div>
     );

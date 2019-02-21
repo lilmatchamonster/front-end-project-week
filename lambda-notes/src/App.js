@@ -53,7 +53,7 @@ class App extends Component {
           updated.textBody = note.textBody
         }
       })
-      this.setState({notes: updatedState})
+      this.setState({display: 0, notes: updatedState})
     })
     .catch(error => {
       console.log(error);
@@ -61,7 +61,6 @@ class App extends Component {
   }
 
   deleteNote = (id) => {
-    
     Axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
     .then(response => {
       console.log(response)
@@ -137,8 +136,6 @@ class App extends Component {
         <SideBar home={this.home} createNote={this.createNote}/>
         <div className="holder">
           {this.show()}
-          {/* <button className="nav-btn">{"<<"} Previous</button>
-          <button className="nav-btn">Next {">>"}</button> */}
         </div>
       </div>
     );

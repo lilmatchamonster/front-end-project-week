@@ -159,7 +159,24 @@ h2{
   font-size: 1.2rem;
 }
 
-.nav-btn{
+.nav-div{
+  display: flex;
+  justify-content: center;
+}
+
+.nav-div p{
+  padding: 0 5px;
   font-size: 1rem;
   font-weight: 700;
+}
+
+.nav-btn{
+  margin: 0 5px;
+  background-color: #2bc1c4;
+  border: 2px solid #979797;
+  color: white;
+  padding: 10px 0;
+  font-size: 1rem;
+  font-weight: 700;
+  width: 200px;
 }
