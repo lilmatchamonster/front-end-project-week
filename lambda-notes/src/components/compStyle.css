@@ -44,7 +44,6 @@ h2{
 .create input{
   font-size: 1rem;
   padding: 18px 15px;
-  
 }
 .title{
   width: 440px;
@@ -53,7 +52,11 @@ h2{
 .textBody{
   /* WHY is text aligning to center??? */
   margin-bottom: 6px;
+  font-size: 1rem;
+  padding: 18px 15px;
+  font-family: inherit;
   height: 419px;
+  resize: none;
 }
 /* End Create */
 
@@ -64,10 +67,6 @@ h2{
   width: 805px;
   padding: 0 35px;
 }
-/* .noteView-header header{
-  display: flex;
-  flex-direction: column;
-} */
 .noteView-header header div{
   display: flex;
   justify-content: flex-end;
@@ -101,6 +100,7 @@ h2{
   margin-bottom: 30px;
   padding: 0 20px;
   height: 260px;
+
 } 
 .note h3{
   text-align: left;
@@ -108,11 +108,13 @@ h2{
   margin: 8px 0;
   padding-bottom: 7px;
   border-bottom: 1px solid #979797;
+  overflow: hidden;
 }
 .note p{
   text-align: left;
   margin: 0;
   line-height: 2;
+  word-wrap: break-word;
 }
 /* End Note Component */
 
@@ -137,4 +139,27 @@ h2{
   border: 1px solid gray;
   border-radius: .25rem;
   color: dimgray;
+}
+
+.del-btn{
+  background-color: #d80404;
+  border: 2px solid #979797;
+  color: white;
+  padding: 15px 5px;
+  width: 250px;
+  font-size: 1.2rem;
+}
+
+.no-btn{
+  background-color: #2bc1c4;
+  border: 2px solid #979797;
+  color: white;
+  padding: 15px 5px;
+  width: 250px;
+  font-size: 1.2rem;
+}
+
+.nav-btn{
+  font-size: 1rem;
+  font-weight: 700;
 }

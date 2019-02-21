@@ -18,24 +18,23 @@ class EditNote extends Component {
   changeHandler = event => {
     event.preventDefault();
 
-    this.setState({note: {[event.target.name]: event.target.value}})
+    this.setState({note: {...this.state.note, [event.target.name]: event.target.value}})
   }
 
   addNote = (e) => {
     e.preventDefault();
     
-    this.props.updateNote(this.state.note, this.state.note.id)
+    this.props.updateNote(this.state.note, this.state.note._id)
     this.setState({note: {title: "", textBody: "", _id: ""}})
   }
 
   render() {
-  console.log("This is Current on state: ", this.state.note)
     return ( 
       <div className="create">
         <h2>Edit Note:</h2>
-        <form onSubmit={this.updateNote}>
+        <form onSubmit={this.addNote}>
           <input className="title" type="text" name="title" value={this.state.note.title} onChange={this.changeHandler}/>
-          <input className="textBody" type="text" name="textBody" value={this.state.note.textBody} onChange={this.changeHandler}/>
+          <textarea className="textBody" type="text" name="textBody" value={this.state.note.textBody} onChange={this.changeHandler}/>
           <input className="btn" type="submit" value="Update"/>
         </form>
       </div>

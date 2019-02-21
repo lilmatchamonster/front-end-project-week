@@ -35,26 +35,3 @@ class ListView extends Component {
 }
 
 export default ListView;
-
-// Need to reoganize so that listView component is separate so the title info can be handled separately.
-// currently the title is static. This is very bad!
-
-//  {this.state.notes.slice(this.pageChange()[0],this.pageChange()[1]).map(note => {
-//             return <Note textBody={note.textBody} title={note.title} key={note.id}/>
-//           })} 
-
-
-// show = () => {
-//   if(this.state.display === 0){
-//     return (this.state.notes.slice(this.pageChange()[0],this.pageChange()[1]).map(note => {
-//       return <Note key={note.id} note={note} viewCard={this.viewCard}/>}))
-//   }
-//   else if(this.state.display === 1){
-//     let cat = this.state.notes.filter(note => {
-//       if(note._id === this.state.id){
-//         return note
-//       }
-//     })
-//     return <NoteView mynote={cat} />
-//   }
-// }

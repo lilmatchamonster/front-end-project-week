@@ -34,7 +34,8 @@ class App extends Component {
     Axios.post('https://fe-notes.herokuapp.com/note/create', note)
     .then(response =>{
       console.log(response)
-      this.setState({display: 0})
+      note._id = response.data.success;
+      this.setState({display: 0, notes: [...this.state.notes, note]})
     })
     .catch(error => {
       console.log(error);
@@ -44,11 +45,40 @@ class App extends Component {
   updateNote = (note, id) => {
     Axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
     .then(response => {
-      console.log(response)
+      console.log("this is the response: ", response)
+      // this.setState({notes: [...this.state.notes, response.data]})
+      // console.log("this is updated state: ", this.state.notes)
+      let updatedState = this.state.notes.slice();
+       updatedState.forEach(updated => {
+        if(updated._id === id){
+          updated = note
+        }
+      })
+      this.setState({notes: [...updatedState]})
+      console.log("this is updated: ", updatedState) 
     })
     .catch(error => {
       console.log(error);
     })
+  }
+
+  deleteNote = (id) => {
+    
+    Axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    .then(response => {
+      console.log(response)
+      // let removed = this.state.notes.filter(updated => {
+      //   if(updated._id !== id){
+      //     return updated
+      //   }
+      // })
+      // console.log("this is removed: ", removed), notes: removed
+      this.setState({display: 0})
+    })
+    .catch(error => {
+      console.log(error);
+    })
+    console.log("this note was deleted!!")
   }
 
   // Set Conditionals-------------------------------|
@@ -93,23 +123,25 @@ class App extends Component {
           return note
         }
       })
-      return <NoteView mynote={cat[0]} edit={this.edit}/>
+      return <NoteView mynote={cat[0]} edit={this.edit} deleteNote={this.deleteNote}/>
     }
-    else if(this.state.display === 2 || this.state.display === 4 ){
+    else if(this.state.display === 2){
       return <NewNote postNote={this.postNote}/>
     }
     else if(this.state.display === 3){
-      return <EditNote editNote={this.state.edit}/>
+      return <EditNote editNote={this.state.edit} updateNote={this.updateNote}/>
     }
   }
 
 
-  render() {
+  render() { console.log(this.state.notes)
     return (
       <div className="App">
         <SideBar home={this.home} createNote={this.createNote}/>
         <div className="holder">
           {this.show()}
+          {/* <button className="nav-btn">{"<<"} Previous</button>
+          <button className="nav-btn">Next {">>"}</button> */}
         </div>
       </div>
     );

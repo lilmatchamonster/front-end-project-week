@@ -31,7 +31,7 @@ class NewNote extends Component {
         <h2>Create New Note:</h2>
         <form onSubmit={this.addNote}>
           <input className="title" type="text" name="title" placeholder="Note Title" value={this.state.note.title} onChange={this.changeHandler}/>
-          <input className="textBody" type="text" name="textBody" placeholder="Note Content" value={this.state.note.textBody} onChange={this.changeHandler}/>
+          <textarea className="textBody" type="text" name="textBody" placeholder="Note Content" value={this.state.note.textBody} onChange={this.changeHandler}/>
           <input className="btn" type="submit" value="Save"/>
         </form>
       </div>
