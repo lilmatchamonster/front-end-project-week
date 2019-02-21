@@ -46,16 +46,14 @@ class App extends Component {
     Axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
     .then(response => {
       console.log("this is the response: ", response)
-      // this.setState({notes: [...this.state.notes, response.data]})
-      // console.log("this is updated state: ", this.state.notes)
       let updatedState = this.state.notes.slice();
        updatedState.forEach(updated => {
         if(updated._id === id){
-          updated = note
+          updated.title = note.title
+          updated.textBody = note.textBody
         }
       })
-      this.setState({notes: [...updatedState]})
-      console.log("this is updated: ", updatedState) 
+      this.setState({notes: updatedState})
     })
     .catch(error => {
       console.log(error);
@@ -67,13 +65,12 @@ class App extends Component {
     Axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
     .then(response => {
       console.log(response)
-      // let removed = this.state.notes.filter(updated => {
-      //   if(updated._id !== id){
-      //     return updated
-      //   }
-      // })
-      // console.log("this is removed: ", removed), notes: removed
-      this.setState({display: 0})
+      let removed = this.state.notes.filter(updated => {
+        if(updated._id !== id){
+          return updated
+        }
+      })
+      this.setState({display: 0, notes: removed})
     })
     .catch(error => {
       console.log(error);
