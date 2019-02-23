@@ -1,0 +1,13 @@
+body{
+  background-color: rgba(0, 0, 0, 0.714);
+}
+.App {
+  box-sizing: border-box;
+  display: flex;
+  border: 1px solid greenyellow;
+  background-color: #f3f3f3;
+  /* margin: 0 auto; */
+  width: 1168px;
+  height: 1165px;
+}
+
